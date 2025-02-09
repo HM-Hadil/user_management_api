@@ -1,0 +1,24 @@
+<h2>Tableau des utilisateurs</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Âge</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of data; track $index) {
+    <tr >
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.age }}</td>
+      <td>
+        <button (click)="editItem(item)">Edit</button>
+        <button (click)="deleteItem(item)">Delete</button>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>
