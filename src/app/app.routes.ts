@@ -5,4 +5,5 @@ import { TableComponent } from './table/table.component';
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'table', component: TableComponent },
+    
   ];
