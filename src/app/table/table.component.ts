@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-table',
@@ -8,20 +9,22 @@ import { Component } from '@angular/core';
   styleUrl: './table.component.css'
 })
 export class TableComponent {
-  data = [
-    { id: 1, name: 'Alice', age: 25 },
-    { id: 2, name: 'Bob', age: 30 },
-    { id: 3, name: 'Charlie', age: 35 },
-  ];
+  constructor(private dataService: DataService) {}
+ // Utilisez la méthode du service pour récupérer les données
 
-  // Méthode pour éditer un élément
-  editItem(item: any): void {
-    alert(`Éditer : ${item.name}`);
+ get data() {
+  return this.dataService.getData();
+}
+
+
+   // Méthode pour éditer un élément
+   editItem(item: any): void {
+    this.dataService.editItem(item);
   }
-
+//.filter() : Méthode JavaScript qui crée un nouveau tableau en ne conservant que les éléments qui satisfont une condition donnée.
   // Méthode pour supprimer un élément
   deleteItem(item: any): void {
-    this.data = this.data.filter((i) => i.id !== item.id);
-    alert(`Supprimer : ${item.name}`);
+    this.dataService.deleteItem(item);
   }
+
 }
