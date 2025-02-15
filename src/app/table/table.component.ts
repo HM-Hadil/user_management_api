@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Pipe } from '@angular/core';
 import { DataService } from '../data.service';
+import { pipe } from 'rxjs/internal/util/pipe';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
